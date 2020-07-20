@@ -193,6 +193,12 @@
             "asOfVersion": "2.2.11"
         },
         {
+            "libraryName": "asynciterator",
+            "typingsPackageName": "asynciterator",
+            "sourceRepoURL": "https://github.com/RubenVerborgh/AsyncIterator/",
+            "asOfVersion": "3.0.0"
+        },
+        {
             "libraryName": "aurelia-knockout",
             "typingsPackageName": "aurelia-knockout",
             "sourceRepoURL": "https://github.com/code-chris/aurelia-knockout",
@@ -461,6 +467,12 @@
             "typingsPackageName": "camljs",
             "sourceRepoURL": "https://github.com/andrei-markeev/camljs",
             "asOfVersion": "2.8.1"
+        },
+        {
+            "libraryName": "cash-dom",
+            "typingsPackageName": "cash",
+            "sourceRepoURL": "https://github.com/fabiospampinato/cash",
+            "asOfVersion": "3.0.0"
         },
         {
             "libraryName": "cassandra-driver",
@@ -1103,6 +1115,12 @@
             "typingsPackageName": "electron-is-dev",
             "sourceRepoURL": "https://github.com/sindresorhus/electron-is-dev",
             "asOfVersion": "1.1.0"
+        },
+        {
+            "libraryName": "electron-packager",
+            "typingsPackageName": "electron-packager",
+            "sourceRepoURL": "https://github.com/electron/electron-packager",
+            "asOfVersion": "15.0.0"
         },
         {
             "libraryName": "electron-store",
@@ -2989,6 +3007,12 @@
             "asOfVersion": "3.0.0"
         },
         {
+            "libraryName": "net-keepalive",
+            "typingsPackageName": "net-keepalive",
+            "sourceRepoURL": "https://github.com/hertzg/node-net-keepalive",
+            "asOfVersion": "1.0.0"
+        },
+        {
             "libraryName": "new-github-issue-url",
             "typingsPackageName": "new-github-issue-url",
             "sourceRepoURL": "https://github.com/sindresorhus/new-github-issue-url",
@@ -3851,6 +3875,12 @@
             "typingsPackageName": "raw-body",
             "sourceRepoURL": "https://github.com/stream-utils/raw-body",
             "asOfVersion": "2.3.0"
+        },
+        {
+            "libraryName": "raygun",
+            "typingsPackageName": "raygun",
+            "sourceRepoURL": "https://github.com/MindscapeHQ/raygun4node",
+            "asOfVersion": "0.11.0"
         },
         {
             "libraryName": "rc-progress",
@@ -4741,6 +4771,12 @@
             "asOfVersion": "3.0.0"
         },
         {
+            "libraryName": "split.js",
+            "typingsPackageName": "split.js",
+            "sourceRepoURL": "https://github.com/nathancahill/split/tree/master/packages/splitjs",
+            "asOfVersion": "1.6.0"
+        },
+        {
             "libraryName": "spotify-web-api-js",
             "typingsPackageName": "spotify-web-api-js",
             "sourceRepoURL": "https://github.com/JMPerez/spotify-web-api-js",
@@ -4957,6 +4993,12 @@
             "asOfVersion": "3.1.1"
         },
         {
+            "libraryName": "stylelint-webpack-plugin",
+            "typingsPackageName": "stylelint-webpack-plugin",
+            "sourceRepoURL": "https://github.com/webpack-contrib/stylelint-webpack-plugin",
+            "asOfVersion": "2.1.0"
+        },
+        {
             "libraryName": "subsume",
             "typingsPackageName": "subsume",
             "sourceRepoURL": "https://github.com/sindresorhus/subsume",
@@ -5087,6 +5129,24 @@
             "typingsPackageName": "terser",
             "sourceRepoURL": "https://github.com/terser-js/terser",
             "asOfVersion": "3.12.0"
+        },
+        {
+            "libraryName": "@testing-library/dom",
+            "typingsPackageName": "testing-library__dom",
+            "sourceRepoURL": "https://github.com/testing-library/dom-testing-library",
+            "asOfVersion": "7.5.0"
+        },
+        {
+            "libraryName": "@testing-library/react",
+            "typingsPackageName": "testing-library__react",
+            "sourceRepoURL": "https://github.com/testing-library/react-testing-library",
+            "asOfVersion": "10.2.0"
+        },
+        {
+            "libraryName": "@testing-library/user-event",
+            "typingsPackageName": "testing-library__user-event",
+            "sourceRepoURL": "https://github.com/testing-library/user-event",
+            "asOfVersion": "4.2.0"
         },
         {
             "libraryName": "text-clipper",
@@ -5545,10 +5605,22 @@
             "asOfVersion": "2.8.0"
         },
         {
+            "libraryName": "@wordpress/dependency-extraction-webpack-plugin",
+            "typingsPackageName": "wordpress__dependency-extraction-webpack-plugin",
+            "sourceRepoURL": "https://github.com/WordPress/gutenberg",
+            "asOfVersion": "2.7.0"
+        },
+        {
             "libraryName": "@wordpress/dom-ready",
             "typingsPackageName": "wordpress__dom-ready",
             "sourceRepoURL": "https://github.com/WordPress/gutenberg",
             "asOfVersion": "2.9.0"
+        },
+        {
+            "libraryName": "@wordpress/element",
+            "typingsPackageName": "wordpress__element",
+            "sourceRepoURL": "https://github.com/WordPress/gutenberg",
+            "asOfVersion": "2.14.0"
         },
         {
             "libraryName": "@wordpress/escape-html",
@@ -5639,6 +5711,12 @@
             "typingsPackageName": "xlsx",
             "sourceRepoURL": "https://github.com/sheetjs/js-xlsx",
             "asOfVersion": "0.0.36"
+        },
+        {
+            "libraryName": "xml-formatter",
+            "typingsPackageName": "xml-formatter",
+            "sourceRepoURL": "https://github.com/chrisbottin/xml-formatter",
+            "asOfVersion": "2.1.1"
         },
         {
             "libraryName": "xml-js",

@@ -15,8 +15,9 @@
 //                 Eric Kenney <https://github.com/KenneyE>
 //                 Paito Anderson <https://github.com/PaitoAnderson>
 //                 Jan Michalak <https://github.com/michalak111>
-//                 Felix Hessenberger <https://github.com/fhessenberger>
 //                 Tom Price <https://github.com/tomtom5152>
+//                 Daniele Carrucciu <https://github.com/catruzz>
+//                 Chris Vandenberg <https://github.com/altruisticsoftware>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 import { Validator } from 'prop-types';
@@ -278,7 +279,7 @@ export interface CalendarProps<TEvent extends object = Event, TResource extends 
     onDoubleClickEvent?: (event: TEvent, e: React.SyntheticEvent<HTMLElement>) => void;
     onSelectEvent?: (event: TEvent, e: React.SyntheticEvent<HTMLElement>) => void;
     onSelecting?: (range: { start: stringOrDate; end: stringOrDate }) => boolean | undefined | null;
-    onRangeChange?: (range: Date[] | { start: stringOrDate; end: stringOrDate }) => void;
+    onRangeChange?: (range: Date[] | { start: stringOrDate; end: stringOrDate }, view: View | undefined) => void;
     selected?: any;
     views?: ViewsProps;
     drilldownView?: View | null;
@@ -318,6 +319,7 @@ export interface CalendarProps<TEvent extends object = Event, TResource extends 
     defaultDate?: Date;
     className?: string;
     elementProps?: React.HTMLAttributes<HTMLElement>;
+    style?: React.CSSProperties;
     onShowMore?: (events: TEvent[], date: Date) => void;
 }
 

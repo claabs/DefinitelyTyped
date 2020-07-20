@@ -240,7 +240,23 @@ nodeRequire.requireMock('moduleName');
 
 /* Top-level jest namespace functions */
 
+interface FakeModule {
+    import1: { property: string };
+    import2: { method(): void };
+}
+
+interface FakeModuleWithDefault {
+    default: { property: number };
+    import1: { property: string };
+}
+
+type FakeRequiredFunction = () => string;
+
 const customMatcherFactories: jasmine.CustomMatcherFactories = {};
+const fakeDefault = { property: 42 };
+const fakeImport1 = { property: 'Hello World' };
+const fakeImport2 = { method() {} };
+const fakeFunction = jest.fn<ReturnType<FakeRequiredFunction>, Parameters<FakeRequiredFunction>>();
 
 jest.addMatchers(customMatcherFactories)
     .addMatchers({})
@@ -258,12 +274,20 @@ jest.addMatchers(customMatcherFactories)
     .doMock('moduleName', jest.fn())
     .doMock('moduleName', jest.fn(), {})
     .doMock('moduleName', jest.fn(), { virtual: true })
+    .doMock<FakeRequiredFunction>('moduleName', () => fakeFunction)
+    .doMock<FakeModule>('moduleName', () => ({ import1: fakeImport1, import2: fakeImport2 }))
+    .doMock<FakeModule>('moduleName', () => ({ import1: fakeImport1, import2: fakeImport2 }), { virtual: true })
+    .doMock<FakeModuleWithDefault>('moduleName', () => ({ __esModule: true, default: fakeDefault, import1: fakeImport1 }))
     .dontMock('moduleName')
     .enableAutomock()
     .mock('moduleName')
     .mock('moduleName', jest.fn())
     .mock('moduleName', jest.fn(), {})
     .mock('moduleName', jest.fn(), { virtual: true })
+    .mock<FakeRequiredFunction>('moduleName', () => fakeFunction)
+    .mock<FakeModule>('moduleName', () => ({ import1: fakeImport1, import2: fakeImport2 }))
+    .mock<FakeModule>('moduleName', () => ({ import1: fakeImport1, import2: fakeImport2 }), { virtual: true })
+    .mock<FakeModuleWithDefault>('moduleName', () => ({ __esModule: true, default: fakeDefault, import1: fakeImport1 }))
     .resetModuleRegistry()
     .resetModules()
     .isolateModules(() => {})
@@ -282,8 +306,43 @@ jest.addMatchers(customMatcherFactories)
     .useFakeTimers()
     .useRealTimers();
 
+// $ExpectError
+jest.doMock<FakeModuleWithDefault>('moduleName', () => ({ default: fakeDefault, import1: fakeImport1 }));
+// $ExpectError
+jest.doMock<FakeModuleWithDefault>('moduleName', () => ({ __esModue: false, default: fakeDefault, import1: fakeImport1 }));
+// $ExpectError
+jest.doMock<FakeModuleWithDefault>('moduleName', () => ({ __esModule: true, import1: fakeImport1 }));
+// $ExpectError
+jest.doMock<FakeModule>('moduleName', () => ({ import1: fakeImport1 }));
+// $ExpectError
+jest.mock<FakeModuleWithDefault>('moduleName', () => ({ default: fakeDefault, import1: fakeImport1 }));
+// $ExpectError
+jest.mock<FakeModuleWithDefault>('moduleName', () => ({ __esModue: false, default: fakeDefault, import1: fakeImport1 }));
+// $ExpectError
+jest.mock<FakeModuleWithDefault>('moduleName', () => ({ __esModule: true, import1: fakeImport1 }));
+// $ExpectError
+jest.mock<FakeModule>('moduleName', () => ({ import1: fakeImport1 }));
+
 jest.advanceTimersToNextTimer();
 jest.advanceTimersToNextTimer(2);
+
+// https://jestjs.io/docs/en/jest-object#jestusefaketimersimplementation-modern--legacy
+jest.useFakeTimers('modern');
+jest.useFakeTimers('legacy');
+// $ExpectError
+jest.useFakeTimers('foo');
+
+// https://jestjs.io/docs/en/jest-object#jestsetsystemtimenow-number--date
+jest.setSystemTime();
+jest.setSystemTime(0);
+jest.setSystemTime(new Date(0));
+// $ExpectError
+jest.setSystemTime('foo');
+
+// https://jestjs.io/docs/en/jest-object#jestgetrealsystemtime
+const realSystemTime1: number = jest.getRealSystemTime();
+// $ExpectError
+const realSystemTime2: number = jest.getRealSystemTime('foo');
 
 // https://jestjs.io/docs/en/jest-object#jestrequireactualmodulename
 // $ExpectType any

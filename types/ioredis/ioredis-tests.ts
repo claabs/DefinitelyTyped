@@ -279,6 +279,7 @@ new Redis({
     port: 6379, // Redis port
     host: '127.0.0.1', // Redis host
     family: 4, // 4 (IPv4) or 6 (IPv6)
+    username: 'user',
     password: 'auth',
     db: 0,
     retryStrategy() {
@@ -659,3 +660,8 @@ redis.pipeline()
     .zremrangebylex('foo', '-', '+', (err: Error | null, res: number) => {
         // do something with res or err
     });
+
+redis.options.host;
+redis.status;
+cluster.options.maxRedirections;
+cluster.status;
